@@ -20,6 +20,11 @@ body {
   border-radius: 20px;
   overflow: hidden;
 }
+@media(max-width:575px){
+  .form-container{
+    overflow: scroll;
+  }
+}
 .logo{
   
   background-image:url(Weather-PNG-Photos.png) ;

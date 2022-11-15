@@ -12,7 +12,7 @@ class App extends Component{
   country:'',
   humidity:'',
   description:'',
-  error:'',
+  message:'',
  }
   getWeather= async(e)=>{
     e.preventDefault();
@@ -20,22 +20,29 @@ class App extends Component{
     const country=e.target.elements.country.value;
     const api= await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}%2C${country}&appid=${API_KEY}`);
     const data= await api.json();
+
     if (city && country) {
-    this.setState({
-      tempreature:data.main.temp,
-      city:data.name,
-      country:data.sys.country,
-      humidity:data.main.humidity,
-      description:data.weather[0].description,
-    })
+      
+      if(api.status === 200){
+        
+        this.setState({
+
+          tempreature:data.main.temp,
+          city:data.name,
+          country:data.sys.country,
+          humidity:data.main.humidity,
+          description:data.weather[0].description,
+        })
+      }else{
+        this.setState({
+
+          message : data.message
+        })
+      }
+    
     }else{
       this.setState({
-        tempreature:'',
-        city:'',
-        country:'',
-        humidity:'',
-        description:'',
-        error:'Please enter Data',
+        message : data.message
       })
 
     }
@@ -54,7 +61,7 @@ class App extends Component{
             country={this.state.country}
             humidity={this.state.humidity}
             description={this.state.description}
-            error={this.state.error}
+            message = {this.state.message}
             />
           </div>
        </div>

@@ -35,9 +35,9 @@ const Weather =(props)=>{
                 </p>
               } 
               {
-                props.error && 
+                props.message && 
                 <p>
-                    <label>Error: </label>{props.error}
+                    <label>message: </label>{props.message}
                 </p>
               } 
             </div>
