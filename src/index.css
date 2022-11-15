@@ -13,12 +13,12 @@ body {
   background-size: cover;
 }
 .form-container{
-  height: 92vh;
-  padding: 0px  80px 20px;
+  height: 94vh;
+  padding: 0px  80px 10px;
   margin: auto;
   background-color: rgb(0,0,0,0.6);
   border-radius: 20px;
-  overflow: scroll;
+  overflow: hidden;
 }
 .logo{
   
